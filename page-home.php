@@ -14,14 +14,6 @@
     </div>
 </div>
 <div class="box">
-    <a class="breadman box-padding">
-        <img class="animated" src="<?php echo bloginfo('template_directory') ?>/images/logo.png" alt="" />
-    </a>
-    <div id="text-bubble" class="animated">
-        <span></span>
-    </div>
-</div>
-<div class="box">
     <a href="<?php bloginfo('url'); ?>/sully" class="sully box-padding">
         <img class="animated" src="<?php echo bloginfo('template_directory') ?>/images/sully.png" alt="Sully: A Very Serious RPG" />
     </a>
@@ -29,14 +21,16 @@
 <div class="box">
     <a class="press box-padding" href="<?php bloginfo('url'); ?>/press">
         <h1>Press</h1>
-        Read what some very kind, handsome, and intelligent journalists have been writing about our games.
+        Who we are, where we are, how to get in touch with us... you know the drill.
     </a>
 </div>
 <div class="box">
-    <a class="info box-padding" href="<?php bloginfo('url'); ?>/info">
-        <h1>Info</h1>
-        Who we are, where we are, how to get in touch with us... you know the drill.
+    <a class="breadman box-padding">
+        <img class="animated" src="<?php echo bloginfo('template_directory') ?>/images/logo.png" alt="" />
     </a>
+    <div id="text-bubble" class="animated">
+        <span></span>
+    </div>
 </div>
 <?php endwhile; ?>
 
