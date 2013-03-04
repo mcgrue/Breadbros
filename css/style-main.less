@@ -1,0 +1,291 @@
+/* ---------------------------------------------------------------------------------------------------------- 
+01 Imports and tools ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+@import "reset.less";
+@import "elements.less";
+@import "animate.less";
+
+/* Icons from Icomoon */
+
+@font-face {
+    font-family: 'icomoon';
+    src:url('../icons/fonts/icomoon.eot');
+    src:url('../icons/fonts/icomoon.eot?#iefix') format('embedded-opentype'),
+        url('../icons/fonts/icomoon.svg#icomoon') format('svg'),
+        url('../icons/fonts/icomoon.woff') format('woff'),
+        url('../icons/fonts/icomoon.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Use the following CSS code if you want to use data attributes for inserting your icons */
+[data-icon]:before {
+    font-family: 'icomoon';
+    content: attr(data-icon);
+    speak: none;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+}
+.icon-alone {
+    display:inline-block;
+}
+
+div,
+article,
+section,
+header,
+footer,
+nav,
+li                  {
+    position:relative; /* For absolutely positioning elements within containers */
+}
+.group:after        { /* For clearing */
+    display:block;
+    height:0;
+    clear:both;
+    content:".";
+    visibility:hidden; 
+}
+.screen-reader-text {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Typography and Color ----------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+@gray: #444;
+@face-heading: "chunk",serif;
+@face-body: "ff-meta-serif-web-pro",serif;
+
+body,
+input,
+textarea {
+    font-family: @face-body;
+    font-weight:400;
+    font-size:180%;
+    line-height: 1.6em;
+    color: @gray;
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    background-color: #f6f2ec;
+}
+
+h1, 
+h2, 
+h3 {
+    font-family: @face-heading;
+    font-weight: 400;
+    margin-bottom: .25em;
+    line-height:1.2em;
+}
+h1 {
+    font-size:2em;
+}
+h2 {
+    font-size:1.5em;
+}
+h3 {
+    font-size:1.2em;
+}
+p {
+    margin: 0 0 2em;
+}
+.link (@link-color: #FF4B19) {
+    color: @link-color;
+    text-decoration:none;
+    .transition(all, 0.4s, ease);
+    &:hover {
+        color: spin(@link-color, 20);
+    }
+}
+a {
+    cursor: pointer;
+    .link;
+}
+::-moz-selection    {
+    background: blue;
+    color:#FFF;
+}
+::selection {
+    background: blue;
+    color:#FFF;
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+General styles ----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+.container {
+    padding: 1%;
+}
+img {
+    width: 100%;
+    height: auto;
+}
+@box-padding: 8%;
+@box-margin: 1%;
+@box-cols: 1; /* This var reset in the breakpoints */
+@box-width: ((100% / @box-cols) - (2 *(@box-margin)));
+.box {
+    margin: @box-margin;
+    background-color: #FFF;
+    float: left;
+}
+.box-padding {
+    display: block;
+    padding: @box-padding;
+}
+.link-box (@color: #FF4B19) {
+    h1 {
+        color: @color;
+        .transition(all, 0.4s, ease);
+        position: relative;
+    }
+    width: (100% - (2 * @box-padding));
+    height: (100% - (2 * @box-padding));
+    color: @gray;
+    background: #FFF;
+    text-decoration:none;
+    .transition(all, 0.4s, ease);
+    &:hover {
+        color: @gray;
+        .drop-shadow(.1em, .1em, .4em, .2);
+        h1 {
+            .scale(1.05);
+            left: .1em;
+        }
+    }
+}
+.breadman {
+    display: block;
+    img {
+        &:hover {
+            .tada;
+        }
+    }
+}
+#text-bubble {
+    background: rgba(255,255,255,.95);
+    border: #EEE 1px solid;
+    position: absolute;
+    top: .5em;
+    right: .5em;
+    padding: .2em .5em 0;
+    margin: .5em;
+    font-size: .8em;
+    display: none;
+    .rounded(7px);
+}
+.sully {
+    .link-box;
+    img {
+        .transition(all, 0.4s, ease);
+        &:hover{
+            .scale(1.05);
+        }
+    }
+}
+.press {
+    .link-box(#4CB6B8);
+}
+.info {
+    .link-box(#ffd617);
+}
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Header ------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Footer ------------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+/* ---------------------------------------------------------------------------------------------------------- 
+Breakpoints -------------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------------------- */
+
+@media screen and (min-width:0px) {
+    body {
+      font-size: 130%;
+    }
+    @box-cols: 1;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:475px) {
+    body {
+      font-size: 170%;
+    }
+    @box-cols: 1;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:550px) {
+    body {
+      font-size: 120%;
+    }
+    @box-cols: 2;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:650px) {
+    body {
+      font-size: 140%;
+    }
+    @box-cols: 2;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:800px) {
+    body {
+      font-size: 175%;
+    }
+    @box-cols: 2;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:1000px) {
+    body {
+      font-size: 130%;
+    }
+    @box-cols: 3;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:1175px) {
+    body {
+      font-size: 160%;
+    }
+    @box-cols: 3;
+    .box {
+        width: @box-width;
+    }
+}
+
+@media screen and (min-width:1350px) {
+    body {
+      font-size: 190%;
+    }
+    @box-cols: 3;
+    .box {
+        width: @box-width;
+    }
+}
